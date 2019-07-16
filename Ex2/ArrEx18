@@ -1,0 +1,29 @@
+#include <iostream>
+
+int main() {
+	int arrInt[] = { -4, 2, -1, 5, 6, -3, 5 };
+	int arrStore[(sizeof(arrInt) / sizeof(arrInt[0]))] = {};
+	int countStore = 0;
+
+	for (int presDigit = 0; presDigit < (sizeof(arrInt) / sizeof(arrInt[0])); presDigit++) {
+		if (arrInt[presDigit] < 0) {
+			arrStore[countStore] = arrInt[presDigit];
+			countStore++;
+		}
+	}
+
+	for (int prDigit = 0; prDigit < (sizeof(arrInt) / sizeof(arrInt[0])); prDigit++) {
+		if (arrInt[prDigit] > 0) {
+			arrStore[countStore] = arrInt[prDigit];
+			countStore++;
+		}
+	}
+
+	for (int disArray = 0; disArray < (sizeof(arrInt) / sizeof(arrInt[0])); disArray++) {
+		std::cout << arrStore[disArray] << " ";
+	}
+
+	std::cout << "\n";
+	system("pause");
+
+}
