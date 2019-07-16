@@ -1,0 +1,27 @@
+#include <iostream>
+
+int main() {
+
+	int arrInt[10] = { 4, 2, 1, 6, 7, 3, 5, 8, 9, 10 };
+	int count = 0;
+
+	for (int arrCount = 0; arrCount < (sizeof(arrInt) / sizeof(arrInt[0])); arrCount++) {
+		for (int incCount = 0; incCount < (sizeof(arrInt) / sizeof(arrInt[0])); incCount++) {
+			if (arrInt[arrCount] < arrInt[incCount]) {
+				count++;
+			}
+		}
+		if (count > 0) {
+			std::cout << "Larger elements than " << arrInt[arrCount] << ": " << "\n";
+		}
+		count = 0;
+		for (int incCount = 0; incCount < (sizeof(arrInt) / sizeof(arrInt[0])); incCount++) {
+			if (arrInt[arrCount] < arrInt[incCount]) {
+				std::cout << arrInt[incCount] << " ";
+			}
+		}
+		std::cout << "\n";
+	}
+
+	system("pause");
+}
