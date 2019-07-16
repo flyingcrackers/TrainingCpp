@@ -1,0 +1,42 @@
+#include <iostream>
+
+int main() {
+	int arrOne[] = { 1, 2, 3, 5, 7, 8, 9 };
+	int arrTwo[] = { 2, 4, 5, 6, 8, 9, 10 };
+	int arrThree[] = { 1, 2, 4, 5, 7, 8, 9 };
+	int foundDigit = 0;
+
+	std::cout << "First Array:\t";
+	for (int disArray1 = 0; disArray1 < (sizeof(arrOne) / sizeof(arrOne[0])); disArray1++) {
+		std::cout << arrOne[disArray1] << " ";
+	}
+	std::cout << "\n";
+
+	std::cout << "Second Array:\t";
+	for (int disArray2 = 0; disArray2 < (sizeof(arrOne) / sizeof(arrOne[0])); disArray2++) {
+		std::cout << arrTwo[disArray2] << " ";
+	}
+	std::cout << "\n";
+
+	std::cout << "Third Array:\t";
+	for (int disArray3 = 0; disArray3 < (sizeof(arrOne) / sizeof(arrOne[0])); disArray3++) {
+		std::cout << arrThree[disArray3] << " ";
+	}
+	std::cout << "\n";
+
+	std::cout << "Common elements: ";
+
+	for (int presDigit = 0; presDigit < (sizeof(arrOne) / sizeof(arrOne[0])); presDigit++) {
+		for (int incVal1 = 0; incVal1 < (sizeof(arrOne) / sizeof(arrOne[0])); incVal1++) {
+			if (arrOne[presDigit] == arrTwo[incVal1]) {
+				for (int incVal2 = 0; incVal2 < (sizeof(arrOne) / sizeof(arrOne[0])); incVal2++) {
+					if (arrTwo[incVal1] == arrThree[incVal2]) {
+						std::cout << arrThree[incVal2] << " ";
+					}
+				}
+			}
+		}
+	}
+	std::cout << "\n";
+	system("pause");
+}
