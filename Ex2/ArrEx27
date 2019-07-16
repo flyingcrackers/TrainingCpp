@@ -1,0 +1,28 @@
+#include <iostream>
+
+int main() {
+	int arrInt[] = { 3, 1, 4, 2, 6, 7, 10, };
+	int specNum = 0;
+	int countSum = 0;
+
+	std::cout << "Input sum to find number of pairs whose sum is equal to input: ";
+	std::cin >> specNum;
+
+	for (int presDigit = 0; presDigit < (sizeof(arrInt) / sizeof(arrInt[0])); presDigit++) {
+		for (int incValue = 0; incValue < (sizeof(arrInt) / sizeof(arrInt[0])); incValue++) {
+			if ((arrInt[presDigit] + arrInt[incValue] == specNum)) {
+				std::cout << "Pair: " << arrInt[presDigit] << " " << arrInt[incValue] << "\n";
+				countSum++;
+			}
+		}
+	}
+
+	if (countSum == 0) {
+		std::cout << "No pair found!" << "\n";
+	}
+	else {
+		std::cout << "Number of pairs: " << countSum << "\n";
+	}
+	
+	system("pause");
+}
