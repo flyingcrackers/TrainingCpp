@@ -1,0 +1,25 @@
+#include <iostream>
+
+int main() {
+
+	int arrInt[10] = { 4, 2, 1, 6, 7, 3, 5, 8, 9, 10 };
+	int tempVal1 = 0;
+	int tempVal2 = 0;
+
+	for (int numCount = 0; numCount < (sizeof(arrInt) / sizeof(arrInt[0])) - 1; numCount++) {
+		for (int itCount = 0; itCount < numCount; itCount++) {
+			if (arrInt[itCount] > arrInt[itCount + 1]) {
+				tempVal1 = arrInt[itCount];
+				tempVal2 = arrInt[itCount + 1];
+				arrInt[itCount] = tempVal2;
+				arrInt[itCount + 1] = tempVal1;
+			}
+		}
+	}
+
+	std::cout << "Third largest element:\t" << arrInt[(sizeof(arrInt) / sizeof(arrInt[0]) - 3)] << "\n"
+			  << "Second largest element:\t" << arrInt[(sizeof(arrInt) / sizeof(arrInt[0]) - 2)] << "\n"
+              << "Largest element:\t" << arrInt[(sizeof(arrInt) / sizeof(arrInt[0]) - 1)] << "\n";
+
+	system("pause");
+}
