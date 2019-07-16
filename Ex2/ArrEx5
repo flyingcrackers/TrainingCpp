@@ -1,0 +1,24 @@
+#include <iostream>
+
+int main() {
+
+	int arrInt[10] = { 4, 2, 1, 6, 7, 3, 5, 8, 9, 10 };
+	int tempVal1 = 0;
+	int tempVal2 = 0;
+
+	for (int numCount = 0; numCount < (sizeof(arrInt) / sizeof(arrInt[0])) - 1; numCount++) {
+		for (int itCount = 0; itCount < numCount; itCount++) {
+			if (arrInt[itCount] > arrInt[itCount + 1]) {
+				tempVal1 = arrInt[itCount];
+				tempVal2 = arrInt[itCount + 1];
+				arrInt[itCount] = tempVal2;
+				arrInt[itCount + 1] = tempVal1;
+			}
+		}
+	}
+
+	std::cout << "Smallest element: " << arrInt[0] << "\n";
+	std::cout << "Second smallest element: " << arrInt[1] << "\n";
+
+	system("pause");
+}
