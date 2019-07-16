@@ -1,0 +1,23 @@
+#include <iostream>
+#include <string>
+
+
+int main() {
+	int arrInt[] = { 3, 4, 5, 1, 2 };
+	int arrStore[sizeof(arrInt) / sizeof(arrInt[0])] = {};
+
+	arrStore[0] = arrInt[0] * arrInt[1];
+	arrStore[sizeof(arrInt) / sizeof(arrInt[0]) -1] = arrInt[sizeof(arrInt) / sizeof(arrInt[0]) - 1] * arrInt[sizeof(arrInt) / sizeof(arrInt[0]) - 2];
+
+	for (int arrCount = 1; arrCount < (sizeof(arrInt) / sizeof(arrInt[0]) - 1); arrCount++) {
+		std::cout << "arrInt1: " << arrInt[arrCount-1] << "\t" << "arrInt2: " << arrInt[arrCount + 1] << "\n";
+		arrStore[arrCount] = arrInt[arrCount - 1] * arrInt[arrCount + 1];
+	}
+
+	
+
+	for (int dispRes = 0; dispRes < (sizeof(arrInt) / sizeof(arrInt[0])); dispRes++) {
+		std::cout << "Array[" << dispRes << "]: " << arrStore[dispRes] << "\n";
+	}
+	system("pause");
+}
