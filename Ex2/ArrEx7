@@ -1,0 +1,34 @@
+#include <iostream>
+
+int main() {
+	int arrInt[10] = { 1, 1, 2, 2, 2, 2, 4, 4, 4, 5 };
+	int arrOcc[10] = {};
+	int occNum = 0;
+	int largerNum = 0;
+	int storeHighest = 0;
+
+	for (int firstCount = 0; firstCount < (sizeof(arrInt) / sizeof(arrInt[0])); firstCount++) {
+		for (int secondCount = 0; secondCount < (sizeof(arrInt) / sizeof(arrInt[0])); secondCount++) {
+			if (arrInt[firstCount] == arrInt[secondCount]) {
+				occNum++;
+			}
+		}
+		arrOcc[firstCount] = occNum;
+		occNum = 0;
+	}
+
+	for (int firstOccCount = 0; firstOccCount < (sizeof(arrInt) / sizeof(arrInt[0])); firstOccCount++) {
+		for (int secondOccCount = 0; secondOccCount < (sizeof(arrInt) / sizeof(arrInt[0])); secondOccCount++) {
+			if (arrOcc[firstOccCount] >= arrOcc[secondOccCount]) {
+				largerNum++;
+			}
+		}
+		if (largerNum == (sizeof(arrInt) / sizeof(arrInt[0]))) {
+			storeHighest = arrInt[firstOccCount];
+		}
+		largerNum = 0;
+	}
+
+	std::cout << "Most occuring: " << storeHighest << "\n";
+	system("pause");
+}
