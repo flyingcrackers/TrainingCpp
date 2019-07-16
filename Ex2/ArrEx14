@@ -1,0 +1,27 @@
+#include <iostream>
+
+int main() {
+	int arrBin[] = {0, 0, 1, 0, 1, 0};
+	int tempVal1 = 0;
+	int tempVal2 = 0;
+	
+	for (int digitCheck = 0; digitCheck < (sizeof(arrBin) / sizeof(arrBin[0])); digitCheck++) {
+		for (int incVal = 0; incVal < (sizeof(arrBin) / sizeof(arrBin[0])); incVal++) {
+			if (arrBin[digitCheck] == 1) {
+				for (int findZero = digitCheck; findZero < (sizeof(arrBin) / sizeof(arrBin[0])); findZero++) {
+					tempVal1 = arrBin[digitCheck];
+					tempVal2 = arrBin[findZero];
+					arrBin[findZero] = tempVal1;
+					arrBin[digitCheck] = tempVal2;
+				}
+			}
+		}
+	}
+
+	for (int disArray = 0; disArray < (sizeof(arrBin) / sizeof(arrBin[0])); disArray++) {
+		std::cout << "Array[" << disArray << "]: " << arrBin[disArray] << "\n";
+	}
+
+	system("pause");
+
+}
