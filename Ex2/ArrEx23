@@ -1,0 +1,27 @@
+#include <iostream>
+
+int main() {
+	int arrInt[] = { 1, 2, 2, 3, 4, 5, 5 };
+	int startVal = 1;
+	int foundDuplicate = 0;
+	int storePres = 0;
+
+	for (int presVal = 0; presVal < (sizeof(arrInt) / sizeof(arrInt[0]) - 1); presVal++) {
+		for (int checkVal = 0; checkVal < (sizeof(arrInt) / sizeof(arrInt[0])); checkVal++) {
+			if (arrInt[presVal] == arrInt[checkVal]) {
+				foundDuplicate++;
+				storePres = arrInt[presVal];
+			}
+			startVal++;
+		}
+		presVal += (foundDuplicate - 1);
+		if (foundDuplicate == 2) {
+			std::cout << "Twice: " << arrInt[presVal] << "\n";
+		}
+		else {
+			std::cout << "Once: " << arrInt[presVal] << "\n";
+		}
+		foundDuplicate = 0;
+	}
+	system("pause");
+}
