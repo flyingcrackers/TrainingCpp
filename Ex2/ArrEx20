@@ -1,0 +1,25 @@
+#include <iostream>
+
+int main() {
+	int arrInt[] = { 1, 2, 3, 4, 4, 4, 5, 5, 6, 7, 8 };
+	int inputNum = 0;
+	int count = 0;
+	int foundDigit = 0;
+
+	std::cout << "Input integer: ";
+	std::cin >> inputNum;
+
+	while ((sizeof(arrInt) / sizeof(arrInt[0])) > count) {
+		if (inputNum == arrInt[count]) {
+			foundDigit++;
+		}
+		count++;
+	}
+
+	if (foundDigit > 1) {
+		std::cout << "Number of occurences in array: " << foundDigit << "\n";
+	}
+
+	system("pause");
+
+}
