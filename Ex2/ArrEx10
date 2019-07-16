@@ -1,0 +1,23 @@
+#include <iostream>
+
+int main() {
+	int arrInt[] = { -5, -3, -1, 0, 1, 2, 3, 5, 6, 7 };
+	int value = 0;
+	int inc = 0;
+	bool flag = true;
+
+	while (flag) {
+		if (inc < (sizeof(arrInt) / sizeof(arrInt[0]))) {
+			value = arrInt[inc+1] - arrInt[inc];
+			if (value < 0) {
+				value *= -1;
+			}
+			if (value > 0) {
+				std::cout << "Smallest element missing: " << arrInt[inc] + 1 << "\n";
+				flag = false;
+			}
+		}
+	}
+
+	system("pause");
+}
