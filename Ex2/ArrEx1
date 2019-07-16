@@ -1,0 +1,21 @@
+#include <iostream>
+
+int main() {
+
+	int arrInt[10] = {4, 2, 1, 6, 7, 3, 5, 8, 10, 9};
+	int largerCount = 0;
+
+	for (int numCount = 0; numCount < (sizeof(arrInt) / sizeof(arrInt[0])) ; numCount++) {
+		for (int itCount = 0; itCount < (sizeof(arrInt) / sizeof(arrInt[0])); itCount++) {
+			if (arrInt[numCount] > arrInt[itCount]) {
+				largerCount++;
+			}
+		}
+		if (largerCount == (sizeof(arrInt) / sizeof(arrInt[0]) - 1)) {
+			std::cout << "Largest element: " << arrInt[numCount] << "\n";
+		}
+		largerCount = 0;
+	}
+
+	system("pause");
+}
