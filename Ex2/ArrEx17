@@ -1,0 +1,35 @@
+#include <iostream>
+
+int main() {
+	int arrInt[] = {5, 2, 3, 1, 6, 8, 10, 9};
+	int arrStore[sizeof(arrInt) / sizeof(arrInt[0]) - 1] = {};
+	int tempVal1 = 0;
+	int tempVal2 = 0;
+
+	for (int presDigit = 0; presDigit < (sizeof(arrInt) / sizeof(arrInt[0]) - 1); presDigit++) {
+		arrStore[presDigit] = arrInt[presDigit] - arrInt[presDigit + 1];
+		if (arrStore[presDigit] < 0) {
+			arrStore[presDigit] *= -1;
+		}
+	}
+
+	for (int prDigit = 0; prDigit < (sizeof(arrStore) / sizeof(arrStore[0])); prDigit++) {
+		for (int incValue = 0; incValue < (sizeof(arrStore) / sizeof(arrStore[0])); incValue++) {
+			if (arrStore[prDigit] > arrStore[incValue]) {
+				tempVal1 = arrStore[prDigit];
+				tempVal2 = arrStore[incValue];
+				arrStore[prDigit] = tempVal2;
+				arrStore[incValue] = tempVal1;
+			}
+		}
+	}
+
+
+	for (int disArray = 0; disArray < (sizeof(arrInt) / sizeof(arrInt[0]) - 1); disArray++) {
+		std::cout << "Array[" << disArray << "]: " << (arrStore[disArray]) << "\n"
+			<< "Given Values: " << arrInt[disArray] << " " << arrInt[disArray + 1] << "\n";
+	}
+
+	system("pause");
+
+}
