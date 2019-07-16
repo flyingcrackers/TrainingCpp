@@ -1,0 +1,32 @@
+#include <iostream>
+
+int main() {
+	int arrInt[] = { 4, 2, 1, 3, 5, 7, 9, 10, 8, 6 };
+	int tempVal1 = 0;
+	int tempVal2 = 0;
+
+	for (int presDigit = 0; presDigit < (sizeof(arrInt) / sizeof(arrInt[0])); presDigit++) {
+		for (int incVal = 0; incVal < (sizeof(arrInt) / sizeof(arrInt[0])); incVal++) {
+			if (arrInt[presDigit] <= arrInt[incVal]) {
+				tempVal1 = arrInt[presDigit];
+				tempVal2 = arrInt[incVal];
+				arrInt[presDigit] = tempVal2;
+				arrInt[incVal] = tempVal1;
+			}
+		}
+	}
+
+	for (int prDigit = 0; prDigit < (sizeof(arrInt) / sizeof(arrInt[0])); prDigit++) {
+		tempVal1 = arrInt[prDigit];
+		tempVal2 = arrInt[prDigit + 1];
+		arrInt[prDigit] = tempVal2;
+		arrInt[prDigit + 1] = tempVal1;
+		prDigit++;
+	}
+
+	for (int check = 0; check < (sizeof(arrInt) / sizeof(arrInt[0])); check++) {
+		std::cout << arrInt[check] << " ";
+	}
+	std::cout << "\n";
+	system("pause");
+}
