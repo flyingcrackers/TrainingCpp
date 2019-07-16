@@ -1,0 +1,24 @@
+#include <iostream>
+
+int main() {
+	int arrInt[] = { 1, 1, 3, 3, 4, 5, 6, 6, 2 };
+	int foundDigit = 0;
+
+	std::cout << "Unique elements: ";
+	for (int presDigit = 0; presDigit < (sizeof(arrInt) / sizeof(arrInt[0])); presDigit++) {
+		for (int incDigit = 0; incDigit < (sizeof(arrInt) / sizeof(arrInt[0])); incDigit++) {
+			if (arrInt[presDigit] == arrInt[incDigit]) {
+				foundDigit++;
+			}
+			
+		}
+		if (foundDigit == 1) {
+			std::cout << arrInt[presDigit] << " ";
+		}
+		foundDigit = 0;
+	}
+	std::cout << "\n";
+
+	system("pause");
+
+}
