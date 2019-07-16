@@ -1,0 +1,34 @@
+#include <iostream>
+
+int main() {
+	int arrInt[] = {1, 2, 3, 3, 4, 5, 6, 6 ,7 ,7};
+	int arrStore[256] = {};
+	int foundDigit = 0;
+	int repDigit = 0;
+	int countUp = 0;
+
+	
+	for (int prValue = 0; prValue < (sizeof(arrInt) / sizeof(arrInt[0])); prValue++) {
+		for (int incVal = 0; incVal < (sizeof(arrInt) / sizeof(arrInt[0])); incVal++) {
+			if (arrInt[prValue] == arrInt[incVal]) {
+				foundDigit++;
+			}
+		}
+		if (foundDigit > 1) {
+			arrStore[countUp] = arrInt[prValue];
+			prValue += foundDigit;
+			countUp++;
+		}
+		foundDigit = 0;
+	}
+
+	std::cout << "First two repeating elements: ";
+	for (int check = 0; check < 2; check++) {
+		std::cout << arrStore[check] << " ";
+	}
+	std::cout << "\n";
+	system("pause");
+
+	
+
+}
