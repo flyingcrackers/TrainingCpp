@@ -1,0 +1,15 @@
+#include <iostream>
+
+int main() {
+	int arrInt[] = { 1, 2, 3, 4, 4, 5 };
+	int incCount = 0;
+
+	while (arrInt[incCount] != arrInt[incCount + 1]) {
+		incCount++;
+	}
+
+	std::cout << "First repeating element: " << arrInt[incCount] << "\n";
+
+	system("pause");
+
+}
