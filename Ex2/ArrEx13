@@ -1,0 +1,19 @@
+#include <iostream>
+
+int main() {
+	int arrInt[] = { 1, 2, 3, 4, 5, 6, 7 };
+
+	std::cout << "Even Arrays: " << "\n";
+	for (int evenCount = 0; evenCount < (sizeof(arrInt) / sizeof(arrInt[0]) - 1); evenCount++) {
+		if ((arrInt[evenCount] % 2) == 0) {
+			std::cout << "Array[" << evenCount << "]: " << arrInt[evenCount] << "\n";
+		}
+	}
+	std::cout << "Odd Arrays: " << "\n";
+	for (int oddCount = 0; oddCount < (sizeof(arrInt) / sizeof(arrInt[0]) - 1); oddCount++) {
+		if ((arrInt[oddCount] % 2) == 1) {
+			std::cout << "Array[" << oddCount << "]: " << arrInt[oddCount] << "\n";
+		}
+	}
+	system("pause");
+} 
