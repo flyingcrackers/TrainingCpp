@@ -1,0 +1,42 @@
+#include <iostream>
+
+int main() {
+	int arrInt[] = { 1, 2, 2, 3, 3, 3, 4, 4, 4, 4, 5, 5, 5, 5, 5 };
+	int foundDigit = 0;
+
+	std::cout << "Numbers with odd occurences: ";
+	for (int presDigit = 0; presDigit < (sizeof(arrInt) / sizeof(arrInt[0]) - 1); presDigit++) {
+		for (int incValue = 0; incValue < (sizeof(arrInt) / sizeof(arrInt[0])); incValue++) {
+			if (arrInt[presDigit] == arrInt[incValue]) {
+				foundDigit++;
+			}
+		}
+		if (foundDigit % 2 == 1) {
+			std::cout << arrInt[presDigit] << " ";
+		}
+		if (foundDigit > 0) {
+			presDigit += (foundDigit - 1);
+		}
+		foundDigit = 0;
+	}
+	std::cout << "\n";
+
+	std::cout << "Numbers with even occurences: ";
+	for (int presDigit = 0; presDigit < (sizeof(arrInt) / sizeof(arrInt[0]) - 1); presDigit++) {
+		for (int incValue = 0; incValue < (sizeof(arrInt) / sizeof(arrInt[0])); incValue++) {
+			if (arrInt[presDigit] == arrInt[incValue]) {
+				foundDigit++;
+			}
+		}
+		if (foundDigit % 2 == 0) {
+			std::cout << arrInt[presDigit] << " ";
+		}
+		if (foundDigit > 0) {
+			presDigit += (foundDigit - 1);
+		}
+		foundDigit = 0;
+	}
+
+	system("pause");
+
+}
